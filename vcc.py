@@ -29,8 +29,9 @@ def get_favicon():
 def index(office):
     req = requests.get('http://%s/getxml?location=/Status' % ip, auth=auth)
     xml = objectify.fromstring(req.content)
-    response.content_type = 'text/plain'
-    return xml.SystemUnit.Software.Version.text
+    data = dict()
+    data['ip'] = xml.Network.IPv4.Address.text
+    return template('status', data)
 
 @app.route('/connect/<office>')
 def connect(office):
