@@ -5,6 +5,6 @@
 	<title>Video Conferencing Unit Status</title>
 </head>
 <body>
-	{{ip}}
+	{{data.ip}}
 </body>
 </html>
