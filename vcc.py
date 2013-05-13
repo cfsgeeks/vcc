@@ -27,6 +27,7 @@ def get_favicon():
 
 @app.route('/<office>')
 def index(office):
+    ip = offices[office]['ip']
     req = requests.get('http://%s/getxml?location=/Status' % ip, auth=auth)
     xml = objectify.fromstring(req.content)
     data = dict()
