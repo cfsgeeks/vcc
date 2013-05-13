@@ -32,7 +32,7 @@ def index(office):
     xml = objectify.fromstring(req.content)
     data = dict()
     data['ip'] = xml.Network.IPv4.Address.text
-    return template('status', data)
+    return template('status_c', data)
 
 @app.route('/connect/<office>')
 def connect(office):
