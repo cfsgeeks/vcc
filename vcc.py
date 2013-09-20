@@ -51,7 +51,7 @@ def join_meeting(meeting,office):
     return sendXML(office,'join_meeting',meeting)
 
 @app.route('/join/<meeting>/<code>/<office>')
-def join_meeting(meeting,office,meeting,code):
+def join_meeting(meeting,office,code):
     return sendXML(office,'join_meeting',meeting,code)
 
 run(app,host='0.0.0.0',port='9900',reloader=True)
