@@ -14,7 +14,7 @@ offices = {
 'fortfrances':{'ip':'209','type':'c'}
 }
 
-def sendXML(office,tmpl):
+def sendXML(office,tmpl,meeting="000000000"):
     tmpl = tmpl + '_%s' % offices[office]['type']
     data = template(tmpl)
     ip = offices[office]['ip']
@@ -28,11 +28,12 @@ def get_favicon():
 @app.route('/<office>')
 def index(office):
     ip = offices[office]['ip']
+    vctype = offices[office]['type']
     req = requests.get('http://%s/getxml?location=/Status' % ip, auth=auth)
     xml = objectify.fromstring(req.content)
     data = dict()
     data['ip'] = xml.Network.IPv4.Address.text
-    return template('status_c', data)
+    return template('status_'+'%s' % vctype, data)
 
 @app.route('/connect/<office>')
 def connect(office):
@@ -41,5 +42,9 @@ def connect(office):
 @app.route('/hangup/<office>')
 def hangup(office):
     return sendXML(office, 'disconnectall')
+
+@app.route('/join/<meeting>/<office>')
+def join_meeting(meeting,office):
+    return sendXML(office,'join_meeting',meeting)
 
 run(app,host='0.0.0.0',port='9900',reloader=True)
