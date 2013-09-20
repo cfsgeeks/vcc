@@ -1,6 +1,7 @@
 from bottle import Bottle, run, request,response,static_file,template
 import requests
 from lxml import etree,objectify
+import time
 
 app = Bottle()
 auth = ('admin','TANDBERG')
@@ -50,7 +51,7 @@ def join_meeting(meeting,office):
     return sendXML(office,'join_meeting',meeting)
 
 @app.route('/join/<meeting>/<code>/<office>')
-def join_meeting(meeting,office,code):
+def join_meeting(meeting,office,meeting,code):
     return sendXML(office,'join_meeting',meeting,code)
 
 run(app,host='0.0.0.0',port='9900',reloader=True)

@@ -7,10 +7,10 @@
 <DTMFSend>
 	<Value>#</Value>
 </DTMFSend>
-% if code is not "0000":
+% if code != "0000":
 % for codes in code:
 <DTMFSend command="True">
-	<DTMFString>{{codes}}</DTMFString>
+	<Value>{{codes}}</Value>
 </DTMFSend>
 % end
 % end
