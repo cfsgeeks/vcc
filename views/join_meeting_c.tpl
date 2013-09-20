@@ -1,13 +1,13 @@
 <Command>
 % for number in meeting:
 <DTMFSend command="True">
-	<Value>{{number}}</Value>
+	<DTMFString>{{number}}</DTMFString>
 </DTMFSend>
 % end
 <DTMFSend command="True">
-	<Value>#</Value>
+	<DTMFString>#</DTMFString>
 </DTMFSend>
 <DTMFSend command="True">
-	<Value>#</Value>
+	<DTMFString>#</DTMFString>
 </DTMFSend>
 </Command>
