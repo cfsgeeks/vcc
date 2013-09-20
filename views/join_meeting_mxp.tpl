@@ -8,6 +8,7 @@
 	<Value>#</Value>
 </DTMFSend>
 % if code is not "0000":
+% time.sleep(3000)
 % for codes in code:
 <DTMFSend command="True">
 	<DTMFString>{{codes}}</DTMFString>
