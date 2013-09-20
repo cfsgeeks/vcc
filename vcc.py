@@ -8,10 +8,12 @@ headers = {'Content-type':'text/xml'}
 offices = {
 'kenora':{'ip':'69.26.70.18','type':'mxp'},
 'kenora2':{'ip':'69.26.70.21','type':'mxp'},
-'dryden':{'ip':'70.76.112.226', 'type':'c'},
+'dryden':{'ip':'70.76.112.50', 'type':'c'},
 'siouxlookout':{'ip':'70.76.146.59','type':'c'},
 'redlake':{'ip':'76.66.221.36','type':'mxp'},
-'fortfrances':{'ip':'209','type':'c'}
+'fortfrances':{'ip':'209.91.170.102','type':'mxp'},
+'fortfrances2':{'ip':'209.91.170.54','type':'mxp'},
+'atikokan':{'ip':'184.69.51.50','type':'mxp'}
 }
 
 def sendXML(office,tmpl,meeting="000000000"):
