@@ -50,8 +50,8 @@ def hangup(office):
 def join_meeting(meeting,office):
     return sendXML(office,'join_meeting',meeting)
 
-@app.route('/join/<meeting>/<code>/<office>')
-def join_meeting(meeting,office,code):
-    return sendXML(office,'join_meeting',meeting,code)
+@app.route('/code/<code>/<office>')
+def send_code(office,code):
+    return sendXML(office,'send_code', code)
 
 run(app,host='0.0.0.0',port='9900',reloader=True)
