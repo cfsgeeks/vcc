@@ -8,9 +8,9 @@
 	<DTMFString>#</DTMFString>
 </DTMFSend>
 % if code != "0000":
-% for codes in code:
+% for number in code:
 <DTMFSend command="True">
-	<DTMFString>{{codes}}</DTMFString>
+	<DTMFString>{{number}}</DTMFString>
 </DTMFSend>
 % end
 % end
