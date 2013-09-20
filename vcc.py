@@ -18,7 +18,7 @@ offices = {
 
 def sendXML(office,tmpl,meeting="000000000"):
     tmpl = tmpl + '_%s' % offices[office]['type']
-    data = template(tmpl)
+    data = template(tmpl, {'meeting':meeting})
     ip = offices[office]['ip']
     r = requests.post('http://%s/putxml' % ip, headers=headers, auth=auth, data=data)
     return r.text
