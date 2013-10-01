@@ -14,7 +14,8 @@ offices = {
 'redlake':{'ip':'76.66.221.36','type':'mxp'},
 'fortfrances':{'ip':'209.91.170.102','type':'mxp'},
 'fortfrances2':{'ip':'209.91.170.54','type':'mxp'},
-'atikokan':{'ip':'184.69.51.50','type':'mxp'}
+'atikokan':{'ip':'74.13.232.131','type':'mxp'}
+#'atikokan':{'ip':'184.69.51.50','type':'mxp'}
 }
 
 def sendXML(office,tmpl,meeting="000000000",code="0000"):
