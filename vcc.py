@@ -31,9 +31,10 @@ def get_favicon():
 @app.route('/<office>')
 def index(office):
     response.set_header('Access-Control-Allow-Origin','*')
+    response.set_header('Content-type','text/xml')
     ip = offices[office]['ip']
     vctype = offices[office]['type']
-    req = requests.get('http://%s/status.xml' % ip, auth=auth)
+    req = requests.get('http://%s/status.xml' % ip,auth=auth)
     return req.content
 
 @app.route('/connect/<office>')
@@ -56,4 +57,4 @@ def join_meeting(meeting,office,code):
 def send_code(office,code):
     return sendXML(office,'send_code', code)
 
-run(app,host='0.0.0.0',port='9900',server='bjoern')
+run(app,host='0.0.0.0',port='9900',server='bjoern',reloader=True)
