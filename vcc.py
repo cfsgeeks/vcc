@@ -33,14 +33,8 @@ def index(office):
     response.set_header('Access-Control-Allow-Origin','*')
     ip = offices[office]['ip']
     vctype = offices[office]['type']
-    req = requests.get('http://%s/getxml?location=/Status' % ip, auth=auth)
-    xml = objectify.fromstring(req.content)
-    data = dict()
-    if vctype == 'mxp':
-        data['ip'] = xml.IP.Address.text
-    else:
-        data['ip'] = xml.Network.IPv4.Address.text
-    return template('status_'+'%s' % vctype, data)
+    req = requests.get('http://%s/status.xml' % ip, auth=auth)
+    return req.content
 
 @app.route('/connect/<office>')
 def connect(office):
